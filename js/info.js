@@ -10,15 +10,15 @@ const container = document.createElement('div')
 container.style.display = 'flex';
 
 const div_img = document.createElement('div');
-div_img.style.width = '40%'
+div_img.className = 'div_imagem';
+div_img.style.width = '100%';
 div_img.style.display = 'flex';
 div_img.style.flexDirection = 'column';
 div_img.style.alignItems = 'center';
+div_img.style.position = 'absolute';
 
 const imagem = document.createElement('img');
-imagem.src = localStorage.getItem('caminho');
-//imagem.style.position = 'absolute';
-//imagem.style.left = '100px';
+imagem.src = localStorage.getItem('caminho');;
 imagem.style.marginBottom = '10px'
 
 document.body.appendChild(imagem)
@@ -26,17 +26,17 @@ document.body.appendChild(imagem)
 const nome_completo = document.createElement('h2');
 nome_completo.innerHTML = localStorage.getItem('nome_completo');
 nome_completo.style.color = 'white';
-//nome_completo.style.position = 'absolute';
-//nome_completo.style.left = '100px';
+
 nome_completo.style.textAlign = 'center';
-//nome_completo.style.marginTop = '350px'
+
 
 
 const div_text = document.createElement('div');
-    div_text.style.width = '50%';
+    div_text.className = 'div_text';
+    div_text.style.width = '100%';
     div_text.style.position = 'absolute';
-    div_text.style.left = '500px';
     div_text.style.color = 'white';
+    div_text.style.top = '600px'
 
 const nascimento = document.createElement('p');
 nascimento.innerHTML = `Data de nascimento: ${localStorage.getItem('nascimento')}`;
