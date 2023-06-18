@@ -8,16 +8,15 @@ a{
 @media screen and (min-width: 768px) {
 .container{
     grid-template-columns: 1fr 1fr 1fr 1fr !important;
-}
-.div_cartao{
-    width: 170px !important;
-    margin: 10px !important;
     
 }
-.imagem{
-    width: 170px !important;
-
+.div_cartao{
+    width: 90% !important;
 }
+.imagem{
+    width: 100% !important;
+}
+
 }
 
 @media screen and (min-width: 1024px) and (max-width: 1440px){
@@ -25,12 +24,10 @@ a{
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr !important;
     }
     .div_cartao{
-        width: 170px !important;
-        margin: 10px !important;
-
+        width: 90% !important;
     }
     .imagem{
-        width: 170px !important;
-        
+        width: 100% !important;
     }
+
 }

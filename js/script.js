@@ -35,6 +35,7 @@ container.style.display = 'grid';
 container.style.gridTemplateColumns = '1fr 1fr';
 container.style.margin = '10px';
 container.style.placeItems = 'center';
+container.style.width = '100%';
 
 const titulo = document.createElement('h1');
 titulo.style.color = 'white';
@@ -65,7 +66,7 @@ function criar_cartao(imagem, nome , nome_completo, nascimento, altura, descrica
     const div_cartao = document.createElement('div')
     div_cartao.className = 'div_cartao';
         div_cartao.style.position = 'relative';
-        div_cartao.style.width = '100%';
+        div_cartao.style.width = '90%';
         div_cartao.style.color = 'black';
         div_cartao.style.overflow = 'hidden';
         div_cartao.style.borderRadius = '5px';
@@ -83,6 +84,7 @@ function criar_cartao(imagem, nome , nome_completo, nascimento, altura, descrica
         imagem_jogador.style.textAlign = 'center';
         imagem_jogador.style.margin = '0 auto';
         imagem_jogador.style.fontFamily = 'sans-serif';
+
         imagem_jogador.dataset.nome_completo = nome_completo;
         imagem_jogador.dataset.nascimento = nascimento;
         imagem_jogador.dataset.altura = altura;
