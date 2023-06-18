@@ -6,7 +6,11 @@ a{
 }
 
 @media screen and (min-width: 768px) {
-.container{
+.div_feminina{
+    grid-template-columns: 1fr 1fr 1fr 1fr !important;
+    
+}
+.div_masculina{
     grid-template-columns: 1fr 1fr 1fr 1fr !important;
     
 }
@@ -20,7 +24,10 @@ a{
 }
 
 @media screen and (min-width: 1024px) and (max-width: 1440px){
-    .container{
+    .div_feminina{
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr !important;
+    }
+    .div_masculina{
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr !important;
     }
     .div_cartao{

@@ -1,4 +1,4 @@
-//navbar
+//Header
 
 const navbar = document.createElement('nav');
 navbar.classList.add('navbar');
@@ -29,13 +29,6 @@ navbar.appendChild(busca);
 document.body.prepend(navbar);
 
 //body
-const container = document.createElement('div');
-container.className = 'container';
-container.style.display = 'grid';
-container.style.gridTemplateColumns = '1fr 1fr';
-container.style.margin = '10px';
-container.style.placeItems = 'center';
-container.style.width = '100%';
 
 const titulo = document.createElement('h1');
 titulo.style.color = 'white';
@@ -59,6 +52,9 @@ function detalhe (clicada) {
     window.location.href = 'info.html';
   }
 
+
+const jogadoresFemininos = jogadores.filter(jogador => jogador.elenco === 'feminino');
+const jogadoresMasculinos = jogadores.filter(jogador => jogador.elenco === 'masculino');
 
 
 function criar_cartao(imagem, nome , nome_completo, nascimento, altura, descricao, posicao, elenco) {
@@ -120,11 +116,42 @@ function criar_cartao(imagem, nome , nome_completo, nascimento, altura, descrica
     
     return div_cartao;
 }
-for (const jogador of jogadores) {
-    const cartao = criar_cartao(jogador.imagem, jogador.nome, jogador.nome_completo, jogador.nascimento, jogador.altura, jogador.descricao, jogador.posicao, jogador.elenco);
-    container.appendChild(cartao);
-  }
-document.body.appendChild(container)
+
+const div_feminina = document.createElement('div');
+div_feminina.className = ' div_feminina';
+div_feminina.style.display = 'grid';
+div_feminina.style.gridTemplateColumns = '1fr 1fr';
+
+const jogadoras = document.createElement('h3');
+jogadoras.innerHTML = 'Elenco Feminino';
+jogadoras.style.color = 'white';
+
+jogadoresFemininos.forEach(jogadora => {
+    const cartao_feminino = criar_cartao(jogadora.imagem, jogadora.nome, jogadora.nome_completo, jogadora.nascimento, jogadora.altura, jogadora.descricao, jogadora.posicao, jogadora.elenco);
+    div_feminina.appendChild(cartao_feminino);
+});
+
+
+
+const div_masculina = document.createElement('div');
+div_masculina.className = 'div_masculina'
+div_masculina.style.display = 'grid';
+div_masculina.style.gridTemplateColumns = '1fr 1fr';
+
+const jogador = document.createElement('h3');
+jogador.innerHTML = 'Elenco Masculino';
+jogador.style.color = 'white';
+
+
+jogadoresMasculinos.forEach(jogador => {
+    const cartao_masculino = criar_cartao(jogador.imagem, jogador.nome, jogador.nome_completo, jogador.nascimento, jogador.altura, jogador.descricao, jogador.posicao, jogador.elenco);
+    div_masculina.appendChild(cartao_masculino);
+});
+
+document.body.appendChild(jogadoras);
+document.body.appendChild(div_feminina);
+document.body.appendChild(jogador);
+document.body.appendChild(div_masculina);
 
 
 const buscar = (e) => {
