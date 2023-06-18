@@ -30,9 +30,11 @@ document.body.prepend(navbar);
 
 //body
 const container = document.createElement('div');
+container.className = 'container';
 container.style.display = 'grid';
-container.style.gridTemplateColumns = '1fr 1fr 1fr 1fr 1fr 1fr';
-container.style.marginTop = '80px';
+container.style.gridTemplateColumns = '1fr 1fr';
+container.style.margin = '10px';
+container.style.placeItems = 'center';
 
 const titulo = document.createElement('h1');
 titulo.style.color = 'white';
@@ -61,22 +63,23 @@ function detalhe (clicada) {
 function criar_cartao(imagem, nome , nome_completo, nascimento, altura, descricao, posicao, elenco) {
 
     const div_cartao = document.createElement('div')
+    div_cartao.className = 'div_cartao';
         div_cartao.style.position = 'relative';
-        div_cartao.style.width = '190px';
+        div_cartao.style.width = '100%';
         div_cartao.style.color = 'black';
         div_cartao.style.overflow = 'hidden';
         div_cartao.style.borderRadius = '5px';
         div_cartao.style.padding = '5px';
-        div_cartao.style.marginBottom = '30px';
-        div_cartao.style.marginLeft = '5px';
+        div_cartao.style.margin = '5px';
         div_cartao.style.border = '5px';
         div_cartao.style.background ='#c0bec5';
     
     const imagem_jogador =  document.createElement('img');
-    imagem_jogador.src = imagem;
+        imagem_jogador.src = imagem;
+        imagem_jogador.className = 'imagem';
         imagem_jogador.style.border = '1px solid black';
         imagem_jogador.style.borderRadius = '5px';
-        imagem_jogador.style.width = '190px';
+        imagem_jogador.style.width = '100%';
         imagem_jogador.style.textAlign = 'center';
         imagem_jogador.style.margin = '0 auto';
         imagem_jogador.style.fontFamily = 'sans-serif';
@@ -112,11 +115,6 @@ function criar_cartao(imagem, nome , nome_completo, nascimento, altura, descrica
 
     div_cartao.addEventListener('click', detalhe);
 
-    if (elenco === 'feminino') {
-        div_cartao.classList.add('feminino');
-      } else {
-        div_cartao.classList.add('masculino');
-      }
     
     return div_cartao;
 }
@@ -126,10 +124,11 @@ for (const jogador of jogadores) {
   }
 document.body.appendChild(container)
 
+
 const buscar = (e) => {
     const pre_string_busca = e.target.value;
     const string_busca = pre_string_busca.toLowerCase();
-    if (string_busca.length >= 3 || string_busca.length == 0){
+    if (string_busca.length >= 1 || string_busca.length == 0){
         const filtro = jogadores.filter((jogador) => {
             const nome = jogador.nome.toLowerCase();
             return nome.includes(string_busca);
@@ -143,7 +142,8 @@ const buscar = (e) => {
 }
 }
 
-    busca.onkeyup = buscar;
+busca.addEventListener('input', buscar);
+
 
 
 
