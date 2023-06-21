@@ -65,25 +65,25 @@ container.appendChild(div_text)
 document.body.appendChild(container)
 
 const botao = document.createElement('button');
-
+botao.className = 'botao';
 botao.textContent = 'Voltar';
 
 botao.addEventListener('click', function() {
     window.location.href = 'index.html';
 });
 
-botao.style.position = 'fixed';
+botao.style.position = 'relative';
 botao.style.bottom = '20px';
-botao.style.right = '20px';
+botao.style.left = '240px';
 botao.style.padding = '10px';
 botao.style.backgroundColor = 'white';
 botao.style.color = 'black';
 botao.style.border = 'none';
 botao.style.borderRadius = '5px';
 botao.style.fontSize = '15px';
+botao.style.margin = '15px';
 
+div_text.appendChild(botao);
 
-
-document.body.appendChild(botao);
 
 

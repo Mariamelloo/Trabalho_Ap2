@@ -7,10 +7,17 @@ body{
         left: 300px !important;
         width:50% !important;
         top: 100px !important;
+        height: 400px !important;
         
     }
     .div_imagem{
         width: 40% !important;
+    }
+    .botao{
+        right:20px !important;
+        left: 300px !important;
+        top: 160px !important;
+        
     }
 
 }
@@ -19,8 +26,17 @@ body{
         left: 500px !important;
         width: 50% !important;
         top: 100px !important;
+        height: 500px !important;
     }
     .div_imagem{
         width: 40% !important;
     }
+    .botao{
+        right:20px !important;
+        left: 650px !important;
+        top: 140px !important;
+
+        
+    }
+
 }

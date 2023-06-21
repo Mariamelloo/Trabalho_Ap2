@@ -23,12 +23,18 @@ logo.alt = 'Logo';
 logo.style.width = '60px'
 
 
-navbar.appendChild(logo);
+const link = document.createElement('a');
+    link.href = 'https://www.botafogo.com.br/'; 
+    link.appendChild(logo);
+
+
+navbar.appendChild(link);
 navbar.appendChild(busca);
+
 
 document.body.prepend(navbar);
 
-//body
+//cartões
 
 const titulo = document.createElement('h1');
 titulo.style.color = 'white';
@@ -154,26 +160,27 @@ document.body.appendChild(jogador);
 document.body.appendChild(div_masculina);
 
 
-const buscar = (e) => {
-    const pre_string_busca = e.target.value;
-    const string_busca = pre_string_busca.toLowerCase();
-    if (string_busca.length >= 1 || string_busca.length == 0){
-        const filtro = jogadores.filter((jogador) => {
-            const nome = jogador.nome.toLowerCase();
-            return nome.includes(string_busca);
-        });
-        container.innerHTML = '';
+busca.addEventListener('keyup', function() {
+    const termoBusca = busca.value.toLowerCase();
 
-        filtro.forEach((jogador) => {
-        const cartao = criar_cartao(jogador.imagem, jogador.nome, jogador.nome_completo, jogador.nascimento, jogador.altura, jogador.descricao, jogador.posicao, jogador.elenco);
-            container.appendChild(cartao);
+    div_feminina.innerHTML = '';
+    div_masculina.innerHTML = '';
+
+    jogadoresFemininos.forEach(jogadora => {
+        if (jogadora.nome.toLowerCase().includes(termoBusca)) {
+            const cartao_feminino = criar_cartao(jogadora.imagem, jogadora.nome, jogadora.nome_completo, jogadora.nascimento, jogadora.altura, jogadora.descricao, jogadora.posicao, jogadora.elenco);
+            div_feminina.appendChild(cartao_feminino);
+        }
     });
-}
-}
+    
 
-busca.addEventListener('input', buscar);
-
-
+    jogadoresMasculinos.forEach(jogador => {
+        if (jogador.nome.toLowerCase().includes(termoBusca)) {
+            const cartao_masculino = criar_cartao(jogador.imagem, jogador.nome, jogador.nome_completo, jogador.nascimento, jogador.altura, jogador.descricao, jogador.posicao, jogador.elenco);
+            div_masculina.appendChild(cartao_masculino);
+        }
+    });
+});
 
 
 
